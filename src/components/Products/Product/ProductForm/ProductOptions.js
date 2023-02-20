@@ -2,7 +2,7 @@ import styles from './Product.module.scss';
 import React from 'react';
 import OptionColor from './OptionColor';
 import OptionSize from './OptionSize';
-import Button from '../Button/Button';
+import Button from '.././Button/Button';
 
 const ProductOptions = props => {
     return(    

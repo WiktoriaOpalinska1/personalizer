@@ -1,8 +1,8 @@
-import styles from './Product.module.scss';
+import styles from './ProductForm/Product.module.scss';
 import React, { useState }  from 'react';
 import PropTypes from 'prop-types';
-import ProductImage from './ProductImage';
-import ProductOptions from './ProductOptions';
+import ProductImage from './ProductImage'
+import ProductOptions from '../Product/ProductForm/ProductOptions'
 
 
 const Product = props => {
