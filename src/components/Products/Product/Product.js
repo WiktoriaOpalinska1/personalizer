@@ -1,5 +1,5 @@
 import styles from './ProductForm/Product.module.scss';
-import React, { useState }  from 'react';
+import React, { useState, useMemo }  from 'react';
 import PropTypes from 'prop-types';
 import ProductImage from './ProductImage'
 import ProductOptions from '../Product/ProductForm/ProductOptions'
@@ -9,15 +9,15 @@ const Product = props => {
   const [currentColor, setCurrentColor]  = useState(props.colors[0])
   const [currentSize, setCurrentSize] = useState(props.sizes[0].name);
 
-  const getPrice = () => {
+  const getPrice = useMemo(() => {
     return(props.basePrice + props.sizes.find((size) => currentSize === size.name).additionalPrice);
-  }
+  }, [props.basePrice, props.sizes, currentSize]);
 
   const addToCart = event => {
     event.preventDefault();
     console.log("Sumarry \n-------------");
     console.log("Name: ", props.title);
-    console.log('Price: ', getPrice());
+    console.log('Price: ', getPrice);
     console.log('Color: ', currentColor)
     console.log('Size: ', currentSize)
   }
@@ -28,7 +28,7 @@ const Product = props => {
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
-          <span className={styles.price}>Price: {getPrice()}$</span>
+          <span className={styles.price}>Price: {getPrice}$</span>
         </header>
         <ProductOptions
           colors={props.colors}
@@ -37,7 +37,6 @@ const Product = props => {
           sizes={props.sizes}
           currentSize={currentSize}
           setCurrentSize={setCurrentSize}
-          getPrice={getPrice}
           addToCart={addToCart}
         />
       </div>
