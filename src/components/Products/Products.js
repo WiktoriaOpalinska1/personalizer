@@ -13,4 +13,3 @@ const Products = () => {
 };
 
 export default Products;
-/* renderowania produktów przyda się .map */

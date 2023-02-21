@@ -1,6 +1,7 @@
 import styles from './Product.module.scss';
 import clsx from 'clsx';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const OptionColor = props => {
     const prepareColorClassName = color => {
@@ -15,6 +16,15 @@ const OptionColor = props => {
             </ul>
           </div>
     );
+};
+
+OptionColor.propTypes = {
+  //displayEle: PropTypes.element,
+  colors: PropTypes.arrayOf(PropTypes.string),
+  sizes: PropTypes.arrayOf(PropTypes.shape({
+    additionalPrice: PropTypes.number,
+    name: PropTypes.string
+  })),
 };
 
 export default OptionColor;

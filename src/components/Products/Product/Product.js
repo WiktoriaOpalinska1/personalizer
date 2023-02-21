@@ -24,7 +24,7 @@ const Product = props => {
 
   return (
     <article className={styles.product}>
-      <ProductImage currentColor={currentColor} title={props.title} name={props.name}/>
+      <ProductImage key={props.name} currentColor={currentColor} title={props.title} name={props.name}/>
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
@@ -37,6 +37,7 @@ const Product = props => {
           sizes={props.sizes}
           currentSize={currentSize}
           setCurrentSize={setCurrentSize}
+          getPrice={getPrice}
           addToCart={addToCart}
         />
       </div>
@@ -49,7 +50,7 @@ Product.propTypes = {
   basePrice: PropTypes.number, 
   colors: PropTypes.arrayOf(PropTypes.string),
   id: PropTypes.number,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   sizes: PropTypes.arrayOf(PropTypes.shape({
     additionalPrice: PropTypes.number,
     name: PropTypes.string

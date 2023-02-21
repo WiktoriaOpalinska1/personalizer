@@ -1,6 +1,7 @@
 import styles from './Product.module.scss';
 import clsx from 'clsx';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const OptionSize = props => {
     return(
@@ -12,5 +13,14 @@ const OptionSize = props => {
         </div>
     );
 };
+
+OptionSize.propTypes = {
+    //displayEle: PropTypes.element, 
+    name: PropTypes.string,
+    sizes: PropTypes.arrayOf(PropTypes.shape({
+      additionalPrice: PropTypes.number,
+      name: PropTypes.string
+    })),
+  };
 
 export default OptionSize;
